@@ -5,5 +5,4 @@ export class Employee {
     complexion: string;
     phonenumber: number;
     Image: string;
-
 }
