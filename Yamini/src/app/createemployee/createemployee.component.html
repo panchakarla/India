@@ -1,40 +1,59 @@
+<div class="container-fluid">
 <form #employeeForm="ngForm" (ngsubmit)="saveemployee(employeeForm)">
   <div class="btn-btn-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"> create Employee</h3>
+    <div class="">
+      <h3 class="text-primary">Create Employee</h3>
+</div>
     </div>
+    <div class="container">
     <div class="panel-body">
       <div class="form-group">
-        <label for="fullName">fullName </label>
+        <label for="fullName"> <b>FullName</b></label>
         <input id="fullName" name="fullName" [(ngModel)]="fullName" type="text" class="form-control">
       </div>
       <div class="form-group">
-        <label for="Email">Email</label>
+        <label for="Email"><b>Email</b></label>
         <input id="Email" name="Email" [(ngModel)]="Email" type="text" class="form-control">
       </div>
     </div>
-
-
-    <div class="form-group">
-      <label>contact preference</label>
-      <div class="form-control">
-        <label class="radio-in-line">
-          <input type="radio" name="contactpreference" value="Email" [(ngModel)]="contactpreference"> Email</label>
-        <label class="radio-in-line">
-          <input type="radio" name="contactpreference" value="Phone" [(ngModel)]="contactpreference"> Phone</label>
+   
+    <div class= "row">
+    <div class="form-group col-md-3">
+        <label for="DateofBirth"><b>Date of Birth</b></label>
+        <input id="DateofBirth" name="DateofBirth" [(ngModel)]="DateofBirth" type="text" bsDaterangepicker  class = "form-control" >
       </div>
+    </div>
+  
+    <div class="form-group">
+        <label><b>Contact Preference </b></label>
+    <div class="row">
+      <div class="col-sm-3">
+        <label class= "radio-in-line">
+          <input type= "radio"name="contactpreference" value="Email" [(ngModel)]="contactpreference"> Email
+        </label>
+      </div>
+      <div class="col-sm-4">
+          <label class= "radio-in-line">
+            <input type= "radio"name="contactpreference" value="Phone number " [(ngModel)]="contactpreference"> Phone Number
+          </label>
+        </div>
+     </div>
     </div>
 
 
 
     <div class="form-group">
-      <label>Gender</label>
-      <div class="form-control">
+      <label><b>Gender</b></label>
+        <div class  = "row">
+          <div class ="col-md-3">
         <label class="radio-in-line">
           <input type="radio" value="male" name="gender" [(ngModel)]="gender"> Male </label>
+        </div>
+        <div class="col-sm-4">
         <label class="radio-in-line">
-          <input type="radio" value="female" name="gender" [(ngModel)]="gender"> female </label>
-      </div>
+          <input type="radio" value="female" name="gender" [(ngModel)]="gender"> Female </label>
+     </div>
+    </div>
     </div>
 
     
@@ -44,16 +63,31 @@
         </div>
 
       <div>
-        <label  for= "Department" class="form-group">Department</label>
+        <label  for= "Department" class="form-group"><b>Department</b></label>
         <select id = "Department" name ="Department" [(ngModel)] = "Department" class="form-control">
-          <option *ngFor =  "let dept of departments" [value]= "dept.id" >
+          <option *ngFor =  "let dept of departments" [value]= "dept.id">
             {{dept.name}}</option>
         </select>
       </div>
 
+
+  <div class="form-group">
+    <label for = "Photopath"><b>Photo path</b></label>
+    <input id= "Photopath" name="Photopath" [(ngModel)]= "Photopath" type="text" class ="form-control">
+  </div>
+
+  <div class="form-group">
+    <img [src]="Photopath" height="200" weight="200">
+  </div>
+  
     <div class="panel-footer">
       <button type="submit" class="btn-btn-primary">save</button>
     </div>
   </div>
 </form>
+</div>
+
+
+
+
 {{ employeeForm.value | json}}

@@ -1,64 +1,60 @@
-<div class="panel panel-primary" *ngFor="let employee of employees">
-  <div class="panel-heading">
-      <h3 class="panel-title">{{employee.Name}}</h3>
-  </div>
-  <div class="panel-body">
-      <div class="col-xs-0">
-          <div class="row vertical-align">
-              <div class="col-xs-4">
-                  <img class="imageClass" [src]="employee.Image" />
-              </div>
-              <div class="col-xs-8">
-                  <div class="row">
-                      <div class="col-xs-6">
-                          Name
-                      </div>
-                      <div class="col-xs-6">
-                          :{{ employee.Name}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-xs-6">
-                          Gender
-                      </div>
-                      <div class="col-xs-6">
-                          :{{ employee.Gender}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-xs-6">
-                          Age
-                      </div>
-                      <div class="col-xs-6">
-                          :{{ employee.Age}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-xs-6">
-                          complexion
-                      </div>
-                      <div class="col-xs-6">
-                          :{{employee.complexion}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-xs-6">
-                          phonenumber
-                      </div>
-                      <div class="col-xs-6">
-                          :{{employee.phonenumber}}
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-xs-6">
-                          Image
-                      </div>
-                      <div class="col-xs-6">
-                          :{{employee.Image}}
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="container">
+    <div class="panel panel-primary" *ngFor="let employee of employees">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{employee.Name}}</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-0">
+                <div class="row vertical-align">
+
+                    <div class="container">
+                        <img class="imageClass" [src]="employee.Image" />
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="row text-danger">
+                            <div class="col-sm-6">
+                                Name
+                            </div>
+                             <div class="col-sm-6">
+                                :{{ employee.Name}}
+                            </div>
+                        </div>
+                        <div class="row text-muted">
+                            <div class="col-sm-6">
+                                Gender
+                            </div>
+                            <div class="col-sm-6">
+                                :{{ employee.Gender}}
+                            </div>
+                        </div>
+                        <div class="row text-body">
+                            <div class="col-sm-6">
+                                Age
+                            </div>
+                            <div class="col-sm-6">
+                                :{{ employee.Age}}
+                            </div>
+                        </div>
+                        <div class="row text-info">
+                            <div class="col-sm-6">
+                                complexion
+                            </div>
+                            <div class="col-sm-6">
+                                :{{employee.complexion}}
+                            </div>
+                        </div>
+                        <div class="row text-success">
+                            <div class="col-sm-6">
+                                phonenumber
+                            </div>
+                            <div class="col-sm-6">
+                                :{{employee.phonenumber}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
