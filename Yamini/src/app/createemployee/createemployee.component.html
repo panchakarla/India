@@ -1,93 +1,105 @@
 <div class="container-fluid">
-<form #employeeForm="ngForm" (ngsubmit)="saveemployee(employeeForm)">
-  <div class="btn-btn-primary">
-    <div class="">
-      <h3 class="text-primary">Create Employee</h3>
-</div>
+  <form #employeeForm="ngForm" (ngsubmit)="saveemployee(employeeForm)">
+    <div class="btn-btn-primary">
+      <!-- <div class=""> -->
+        <h3 class="text-primary">Create Employee</h3>
+      <!-- </div> -->
     </div>
     <div class="container">
-    <div class="panel-body">
-      <div class="form-group">
-        <label for="fullName"> <b>FullName</b></label>
-        <input id="fullName" name="fullName" [(ngModel)]="fullName" type="text" class="form-control">
-      </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+          [class.has-success]="fullNameControl.valid">
+          <label for="fullName" class="control-label"> <b>Full Name:</b></label>
+          <input  id="fullName" required name="fullName" [(ngModel)]="fullName" type="text" class="form-control"
+            #fullNameControl="ngModel" placeholder="Enter Full Name">
+          <span class="help-block" *ngIf="fullNameControl.invalid && fullNameControl.touched"> Full name is required</span>
+        </div>
+
       <div class="form-group">
         <label for="Email"><b>Email</b></label>
-        <input id="Email" name="Email" [(ngModel)]="Email" type="text" class="form-control">
+        <input id="Email" name="Email" [(ngModel)]="Email" type="text" class="form-control" placeholder="Enter an Email">
       </div>
     </div>
-   
-    <div class= "row">
-    <div class="form-group col-md-3">
-        <label for="DateofBirth"><b>Date of Birth</b></label>
-        <input id="DateofBirth" name="DateofBirth" [(ngModel)]="DateofBirth" type="text" bsDaterangepicker  class = "form-control" >
+        
+      <!-- <div class="form-group " [class.has-error]="Email.invalid && Email.touched">
+          <label for="Email" class="control-label" ><b>Email</b></label>
+          <input id="Email" required name="Email" #Email="ngModel" [(ngModel)]="Employee.Email" type="text" class="form-control"  placeholder="Enter an Email">
+          <span class="help-block" *ngIf="Email.invalid && Email.touched">Email is Required </span>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="DateofBirth"><b>Date of Birth</b></label>
+          <input id="DateofBirth" name="DateofBirth" [(ngModel)]="DateofBirth" type="text" bsDaterangepicker class="form-control">
+        </div>
       </div>
-    </div>
-  
-    <div class="form-group">
+
+      <div class="form-group">
         <label><b>Contact Preference </b></label>
-    <div class="row">
-      <div class="col-sm-3">
-        <label class= "radio-in-line">
-          <input type= "radio"name="contactpreference" value="Email" [(ngModel)]="contactpreference"> Email
-        </label>
-      </div>
-      <div class="col-sm-4">
-          <label class= "radio-in-line">
-            <input type= "radio"name="contactpreference" value="Phone number " [(ngModel)]="contactpreference"> Phone Number
-          </label>
+        <div class="row">
+          <div class="col-sm-3">
+            <label class="radio-in-line">
+              <input type="radio" name="contactpreference" value="Email" [(ngModel)]="contactpreference"> Email
+            </label>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-in-line">
+              <input type="radio" name="contactpreference" value="Phone number " [(ngModel)]="contactpreference"> Phone
+              Number
+            </label>
+          </div>
         </div>
-     </div>
-    </div>
-
-
+      </div>
 
     <div class="form-group">
-      <label><b>Gender</b></label>
-        <div class  = "row">
-          <div class ="col-md-3">
-        <label class="radio-in-line">
-          <input type="radio" value="male" name="gender" [(ngModel)]="gender"> Male </label>
+        <label><b>Gender</b></label>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="radio-in-line">
+              <input type="radio" value="male" name="gender" [(ngModel)]="gender"> Male </label>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-in-line">
+              <input type="radio" value="female" name="gender" [(ngModel)]="gender"> Female </label>
+          </div>
         </div>
-        <div class="col-sm-4">
-        <label class="radio-in-line">
-          <input type="radio" value="female" name="gender" [(ngModel)]="gender"> Female </label>
-     </div>
-    </div>
     </div>
 
-    
-        <div >
+     <div>
         <label class="checkbox-in-line">
-            <input type="checkbox"  name="IsActive" [(ngModel)]="gender"> Is Active </label>
-        </div>
+          <input type="checkbox" name="IsActive" [(ngModel)]="gender"> Is Active </label>
+      </div>
 
       <div>
-        <label  for= "Department" class="form-group"><b>Department</b></label>
-        <select id = "Department" name ="Department" [(ngModel)] = "Department" class="form-control">
-          <option *ngFor =  "let dept of departments" [value]= "dept.id">
+        <label for="Department" class="form-group"><b>Department</b></label>
+        <select id="Department" name="Department" [(ngModel)]="Department" class="form-control">
+          <option *ngFor="let dept of departments" [value]="dept.id">
             {{dept.name}}</option>
         </select>
       </div>
 
 
-  <div class="form-group">
-    <label for = "Photopath"><b>Photo path</b></label>
-    <input id= "Photopath" name="Photopath" [(ngModel)]= "Photopath" type="text" class ="form-control">
-  </div>
+      <div class="form-group">
+        <label for="Photopath"><b>Photo</b></label>
+        <input id="Photopath" name="Photopath" [(ngModel)]="Photopath" type="text" class="form-control">
+      </div>
 
-  <div class="form-group">
-    <img [src]="Photopath" height="200" weight="200">
-  </div>
-  
-    <div class="panel-footer">
-      <button type="submit" class="btn-btn-primary">save</button>
+
+      <div class="custom-file mb-3">
+        <input type="file" class="custom-file-input" id="customFile" name="filename">
+        <label class="custom-file-label" for="customFile">Photo path</label>
+      </div>
+
+      <div class="form-group">
+        <img [src]="Photopath" height="200" weight="200">
+      </div>
+
+      <div class="form-check-label">
+        <button type="submit" class="btn btn-primary" [disabled]=employeeForm.invalid>Submit</button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
 </div>
-
-
-
 
 {{ employeeForm.value | json}}
