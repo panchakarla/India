@@ -1,6 +1,6 @@
 import { Employeeservice } from './employee.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -26,6 +26,7 @@ const appRoutes: Routes = [
     BsDatepickerModule.forRoot(),
     FormsModule
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [Employeeservice],
   bootstrap: [AppComponent]
 })

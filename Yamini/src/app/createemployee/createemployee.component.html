@@ -21,8 +21,8 @@
         </div>
 
 
-        <div class="row" [class.text-danger]="DateofBirthControl.invalid && DateofBirthControl.touched">
-          <div class="form-group col-md-3" class="control-label">
+        <div class="form-group" [class.text-danger]="DateofBirthControl.invalid && DateofBirthControl.touched">
+          <div class="form-group">
           <label for="DateofBirth"><b>Date of Birth</b></label>
           <input id="DateofBirth" name="DateofBirth" required #DateofBirthControl="ngModel" [(ngModel)]="DateofBirth"
             type="text" bsDaterangepicker class="form-control">
@@ -35,7 +35,7 @@
       <div class="form-group" [class.text-danger]="contactpreferenceControl.invalid && contactpreferenceControl.touched">
         <label><b>Contact Preference </b></label>
         <div class="row">
-          <div class="col-sm-3" class="control-label">
+          <div class="col-sm-3">
             <label class="radio-in-line">
               <input type="radio" name="contactpreference" required #contactpreferenceControl="ngModel" value="Email"
                 [(ngModel)]="contactpreference"> Email
@@ -79,7 +79,7 @@
       </div>
 
       <div [class.has-error]="DepartmentControl.invalid && DepartmentControl.touched">
-        <label for="Department" class="form-control"><b>Department</b></label>
+        <label for="Department"><b>Department</b></label>
         <select id="Department" name="Department" required #DepartmentControl="ngModel" [(ngModel)]="Department" class="form-control">
           <option *ngFor="let dept of departments" [value]="dept.id">
             {{dept.name}}</option>
